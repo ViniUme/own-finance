@@ -24,4 +24,11 @@ class DatabaseTest extends TestCase
     {
         $this->assertTrue(Schema::hasTable('users'));
     }
+
+    public function test_users_table_has_default_user(): void
+    {
+        $this->assertDatabaseHas('users', [
+            'email' => 'test@test.com'
+        ]);
+    }
 }
