@@ -22,7 +22,6 @@ class DatabaseTest extends TestCase
 
     public function test_users_table_is_up(): void
     {
-        dump(Schema::hasTable('users'));
         $this->assertTrue(Schema::hasTable('users'));
     }
 }
