@@ -54,4 +54,9 @@ class DatabaseTest extends TestCase
     {
         $this->assertTrue(Schema::hasTable('accounts'));
     }
+
+    public function test_records_table_is_up(): void
+    {
+        $this->assertTrue(Schema::hasTable('records'));
+    }
 }
