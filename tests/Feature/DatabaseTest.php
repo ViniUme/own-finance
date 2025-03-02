@@ -44,4 +44,9 @@ class DatabaseTest extends TestCase
     {
         $this->assertTrue(Schema::hasTable('payment_types'));
     }
+
+    public function test_currencies_table_is_up(): void
+    {
+        $this->assertTrue(Schema::hasTable('currencies'));
+    }
 }
