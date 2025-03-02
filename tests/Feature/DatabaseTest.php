@@ -34,4 +34,9 @@ class DatabaseTest extends TestCase
             'email' => 'user@example.com'
         ]);
     }
+
+    public function test_payment_categories_table_is_up(): void
+    {
+        $this->assertTrue(Schema::hasTable('payment_categories'));
+    }
 }
