@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use Database\Seeders\UserSeeder;
+use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -28,7 +28,7 @@ class DatabaseTest extends TestCase
 
     public function test_users_table_has_default_user(): void
     {
-        $this->seed(UserSeeder::class);
+        $this->seed(DatabaseSeeder::class);
 
         $this->assertDatabaseHas('users', [
             'email' => 'user@example.com'
