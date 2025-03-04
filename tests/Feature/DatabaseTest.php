@@ -18,7 +18,7 @@ class DatabaseTest extends TestCase
         $databaseName = DB::connection()->getDatabaseName();
 
         $this->assertNotNull($databaseName);
-        $this->assertEquals(env('DB_DATABASE'), $databaseName);
+        $this->assertEquals(config('database.connections.mysql.database'), $databaseName);
     }
 
     public function test_users_table_is_up(): void
