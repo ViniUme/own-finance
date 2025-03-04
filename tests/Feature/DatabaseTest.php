@@ -31,7 +31,7 @@ class DatabaseTest extends TestCase
         $this->seed(DatabaseSeeder::class);
 
         $this->assertDatabaseHas('users', [
-            'email' => 'user@example.com'
+            'email' => 'admin@admin.com'
         ]);
     }
 
