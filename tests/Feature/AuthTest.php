@@ -13,4 +13,10 @@ class AuthTest extends TestCase
         $response = $this->get(route('admin.login'));
         $response->assertStatus(200);
     }
+
+    public function test_abort_if_not_authenticated():void
+    {
+        $response = $this->get(route('admin.dashboard'));
+        $response->assertStatus(401);
+    }
 }
