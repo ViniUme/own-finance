@@ -6,8 +6,11 @@ use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
-    Route::get('/login', AdminLoginViewController::class)->name('admin.login');
-    Route::post('/login', AdminLoginAuthController::class)->name('admin.login.auth');
+
+    Route::prefix('login')->group(function () {
+        Route::get('/', AdminLoginViewController::class)->name('admin.login');
+        Route::post('/', AdminLoginAuthController::class)->name('admin.login.auth');
+    });
 
     Route::middleware([Admin::class])->group(function () {
         Route::get('/dashboard', function(){
