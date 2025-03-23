@@ -9,6 +9,6 @@ class AdminLoginViewController extends Controller
 {
     public function __invoke()
     {
-        return;
+        return view('admin.login');
     }
 }
