@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Admin\Login\AdminLoginAuthController;
 use App\Http\Controllers\Admin\Login\AdminLoginViewController;
 use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
     Route::get('/login', AdminLoginViewController::class)->name('admin.login');
+    Route::post('/login', AdminLoginAuthController::class)->name('admin.login.auth');
 
     Route::middleware([Admin::class])->group(function () {
         Route::get('/dashboard', function(){
