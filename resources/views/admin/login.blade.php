@@ -6,8 +6,8 @@
                 <div class="card radius-10">
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <h4>Sign In</h4>
-                            <p>Sign In to your account</p>
+                            <h4>Admin Log In</h4>
+                            <p>Acesso apenas para administradores</p>
                         </div>
                         <form class="form-body row g-3">
                             <div class="col-12">
@@ -24,28 +24,10 @@
                                     <label class="form-check-label" for="flexSwitchCheckRemember">Remember Me</label>
                                 </div>
                             </div>
-                            <div class="col-12 col-lg-6 text-end">
-                                <a href="authentication-reset-password-simple.html">Forgot Password?</a>
-                            </div>
                             <div class="col-12 col-lg-12">
                                 <div class="d-grid">
                                     <button type="button" class="btn btn-primary">Sign In</button>
                                 </div>
-                            </div>
-                            <div class="col-12 col-lg-12">
-                                <div class="position-relative border-bottom my-3">
-                                    <div class="position-absolute seperator translate-middle-y">or continue with</div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12">
-                                <div class="social-login d-flex flex-row align-items-center justify-content-center gap-2 my-2">
-                                    <a href="javascript:;" class=""><img src="assets/images/icons/facebook.png" alt=""></a>
-                                    <a href="javascript:;" class=""><img src="assets/images/icons/apple-black-logo.png" alt=""></a>
-                                    <a href="javascript:;" class=""><img src="assets/images/icons/google.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-12 text-center">
-                                <p class="mb-0">Don't have an account? <a href="authentication-sign-up-simple.html">Sign up</a></p>
                             </div>
                         </form>
                     </div>
