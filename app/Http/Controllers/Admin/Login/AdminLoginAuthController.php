@@ -18,6 +18,6 @@ class AdminLoginAuthController extends Controller
             return redirect()->route('admin.dashboard');
         }
 
-        return redirect()->back(401);
+        return abort(401);
     }
 }
