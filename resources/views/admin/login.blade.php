@@ -9,19 +9,15 @@
                             <h4>Admin Log In</h4>
                             <p>Acesso apenas para administradores</p>
                         </div>
-                        {{ $auth }}
-                        @if(auth()->check())
-                            teste
-                        @endif
                         <form class="form-body row g-3" action="{{ route('admin.login.auth') }}" method="POST">
                             @csrf
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email" value="admin@admin.com">
+                                <input type="email" class="form-control" id="email" name="email">
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="password" name="password" value="password">
+                                <input type="password" class="form-control" id="password" name="password">
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">

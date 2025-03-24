@@ -10,6 +10,6 @@ class AdminLoginViewController extends Controller
 {
     public function __invoke()
     {
-        return view('admin.login', ['auth' => Auth::check() ? 'logado' : 'deslogado']);
+        return view('admin.login');
     }
 }
