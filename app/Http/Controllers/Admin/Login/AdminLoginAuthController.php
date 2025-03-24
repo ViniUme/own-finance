@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin\Login;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,9 +15,9 @@ class AdminLoginAuthController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
-            return response('success', 302);
+            return redirect()->route('admin.dashboard');
         }
 
-        return response('Invalid credentials', 401);
+        return redirect()->back(401);
     }
 }

@@ -9,24 +9,29 @@
                             <h4>Admin Log In</h4>
                             <p>Acesso apenas para administradores</p>
                         </div>
-                        <form class="form-body row g-3">
+                        {{ $auth }}
+                        @if(auth()->check())
+                            teste
+                        @endif
+                        <form class="form-body row g-3" action="{{ route('admin.login.auth') }}" method="POST">
+                            @csrf
                             <div class="col-12">
-                                <label for="inputEmail" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="inputEmail">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email" value="admin@admin.com">
                             </div>
                             <div class="col-12">
-                                <label for="inputPassword" class="form-label">Password</label>
-                                <input type="password" class="form-control" id="inputPassword">
+                                <label for="password" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="password" name="password" value="password">
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckRemember">
-                                    <label class="form-check-label" for="flexSwitchCheckRemember">Remember Me</label>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="remember_me" name="remember_me">
+                                    <label class="form-check-label" for="remember_me">Remember Me</label>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-12">
                                 <div class="d-grid">
-                                    <button type="button" class="btn btn-primary">Sign In</button>
+                                    <button type="submit" class="btn btn-primary">Sign In</button>
                                 </div>
                             </div>
                         </form>
