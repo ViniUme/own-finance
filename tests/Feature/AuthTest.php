@@ -37,7 +37,7 @@ class AuthTest extends TestCase
     {
         $this->seed(DatabaseSeeder::class);
 
-        $response = $this->post(route('admin.login.auth'), [
+        $response = $this->postJson(route('admin.login.auth'), [
             'email' => 'wrong.email@admin.com',
             'password' => 'password'
         ]);
