@@ -2,9 +2,9 @@
 
 namespace App\Http\Requests\Admin\Login;
 
-use Illuminate\Foundation\Http\FormRequest;
+use App\Http\Requests\BaseRequest;
 
-class AdminLoginAuthRequest extends FormRequest
+class AdminLoginAuthRequest extends BaseRequest
 {
     public function authorize(): bool
     {
