@@ -23,6 +23,16 @@ class AuthTest extends TestCase
         $response->assertStatus(401);
     }
 
+    public function test_login_without_email(): void
+    {
+        $response = $this->postJson(route('admin.login.auth'), [
+            'email' => '',
+            'password' => 'password'
+        ]);
+
+        $response->assertStatus(422);
+    }
+
     public function test_login_with_undefined_email(): void
     {
         $this->seed(DatabaseSeeder::class);
