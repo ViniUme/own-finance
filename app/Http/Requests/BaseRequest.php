@@ -15,7 +15,7 @@ class BaseRequest extends FormRequest
                 'success' => false,
                 'message' => 'Validation errors',
                 'errors' => $validator->errors(),
-                'code' => 422,
+                'status' => 422,
                 'timestamp' => now()->toDateTimeString()
             ], 422)
         );
