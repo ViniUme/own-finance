@@ -9,7 +9,7 @@
                             <h4>Admin Log In</h4>
                             <p>Acesso apenas para administradores</p>
                         </div>
-                        <form class="form-body row g-3" action="{{ route('admin.login.auth') }}" method="POST">
+                        <form id="auth-form">
                             @csrf
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
@@ -37,3 +37,27 @@
         </div>
     </div>
 @endsection
+@push('scripts')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.querySelector('#auth-form').addEventListener('submit', function (event) {
+            event.preventDefault()
+
+            axios({
+                url: "{{ route('admin.login.auth') }}",
+                method: "POST",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    email: document.querySelector('#email').value,
+                    password: document.querySelector('#password').value
+                }
+            })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        })
+    </script>
+@endpush
