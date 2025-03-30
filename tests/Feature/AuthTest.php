@@ -23,7 +23,7 @@ class AuthTest extends TestCase
         $response->assertStatus(401);
     }
 
-    public function test_login_wit_undefined_email(): void
+    public function test_login_with_undefined_email(): void
     {
         $this->seed(DatabaseSeeder::class);
 
