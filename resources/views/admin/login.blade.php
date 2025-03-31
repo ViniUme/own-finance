@@ -6,7 +6,7 @@
                 <div class="card radius-10">
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <h4>Admin Log In</h4>
+                            <h4>Área Admin</h4>
                             <p>Acesso apenas para administradores</p>
                         </div>
                         <form class="d-flex flex-column gap-3" id="auth-form">
@@ -25,12 +25,12 @@
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" type="checkbox" role="switch" id="remember_me" name="remember_me">
-                                    <label class="form-check-label" for="remember_me">Remember Me</label>
+                                    <label class="form-check-label" for="remember_me">Lembrar de mim</label>
                                 </div>
                             </div>
                             <div class="col-12 col-lg-12">
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">Sign In</button>
+                                    <button type="submit" class="btn btn-primary">Entrar</button>
                                 </div>
                             </div>
                         </form>
