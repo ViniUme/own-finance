@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
 
-    Route::prefix('login')->group(function () {
-        Route::post('/', AdminLoginAuthController::class)->name('admin.login.auth');
-        Route::get('/', AdminLoginViewController::class)->name('admin.login');
+    Route::get('/login', AdminLoginViewController::class)->name('admin.login');
+
+    Route::prefix('api')->group(function () {
+        Route::post('/login', AdminLoginAuthController::class)->name('api.admin.login.auth');
     });
 
     Route::middleware([Admin::class])->group(function () {

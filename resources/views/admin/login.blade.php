@@ -47,7 +47,7 @@
             event.preventDefault()
 
             axios({
-                url: "{{ route('admin.login.auth') }}",
+                url: "{{ route('api.admin.login.auth') }}",
                 method: "POST",
                 data: {
                     _token: '{{ csrf_token() }}',

@@ -27,7 +27,7 @@ class AuthTest extends TestCase
 
     public function test_login_without_email(): void
     {
-        $response = $this->postJson(route('admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             'email' => '',
             'password' => 'password'
         ]);
@@ -37,7 +37,7 @@ class AuthTest extends TestCase
 
     public function test_login_without_password(): void
     {
-        $response = $this->postJson(route('admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             'email' => 'test@test.com',
             'password' => ''
         ]);
@@ -49,7 +49,7 @@ class AuthTest extends TestCase
     {
         $this->seed(DatabaseSeeder::class);
 
-        $response = $this->postJson(route('admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             'email' => 'wrong.email@admin.com',
             'password' => 'password'
         ]);
@@ -61,7 +61,7 @@ class AuthTest extends TestCase
     {
         $this->seed(DatabaseSeeder::class);
 
-        $response = $this->postJson(route('admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             '_token' => csrf_token(),
             'email' => 'admin@admin.com',
             'password' => 'password'
@@ -84,7 +84,7 @@ class AuthTest extends TestCase
 
     public function test_failure_response_body(): void
     {
-        $response = $this->postJson(route('admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             '_token' => csrf_token(),
             'email' => 'wrong.email@admin.com',
             'password' => 'password'
