@@ -8,7 +8,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 
 class BaseRequest extends FormRequest
 {
-    protected function failedValidation(Validator $validator)
+    protected function failedValidation(Validator $validator): HttpResponseException
     {
         throw new HttpResponseException(
             response()->json([
