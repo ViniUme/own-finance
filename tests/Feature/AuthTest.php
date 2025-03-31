@@ -99,6 +99,7 @@ class AuthTest extends TestCase
                 'request',
                 'message',
                 'status',
+                'errors'
             ]);
     }
 }

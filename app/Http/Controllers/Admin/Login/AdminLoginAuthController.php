@@ -20,10 +20,6 @@ class AdminLoginAuthController extends BaseController
             return $this->sendSuccessResponse($request, 'Login with success');
         }
 
-        return response()->json([
-            'success' => false,
-            'request' => $request->all(),
-            'content' => $request->validated()
-        ], 401);
+        return $this->sendFailureResponse($request, 'Login not authorized', ['email' => 'E-mail not authorized'], 401);
     }
 }
