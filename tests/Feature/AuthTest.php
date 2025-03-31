@@ -76,7 +76,8 @@ class AuthTest extends TestCase
                 'success',
                 'request',
                 'message',
-                'status'
+                'status',
+                'content'
             ]);
     }
 }
