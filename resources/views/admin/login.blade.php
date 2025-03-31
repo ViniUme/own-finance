@@ -57,13 +57,16 @@
                 }
             })
             .then(function (response) {
-                const data = response.response.data;
-                console.log(data)
+                const data = response.data;
+
+                if (data.status === 200 && data.success === true) {
+                    window.location.href = "{{ route('admin.dashboard') }}";
+                }
             })
             .catch(function (response) {
                 const data = response.response.data;
 
-                showAllValidationErrors(data)
+                showAllValidationErrors(data);
             });
         })
 
