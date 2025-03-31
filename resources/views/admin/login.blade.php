@@ -11,13 +11,16 @@
                         </div>
                         <form id="auth-form">
                             @csrf
+                            <div class="alert alert-warning visually-hidden" id="main-header-error"></div>
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
-                                <input type="email" class="form-control" id="email" name="email">
+                                <input type="text" class="form-control" id="email" name="email">
+                                <div class="alert alert-warning visually-hidden" id="email-error"></div>
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password">
+                                <div class="alert alert-warning visually-hidden" id="password-error"></div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">
@@ -53,11 +56,36 @@
                 }
             })
             .then(function (response) {
-                console.log(response);
+                const data = response.response.data;
+                console.log(data)
             })
-            .catch(function (error) {
-                console.log(error);
+            .catch(function (response) {
+                const data = response.response.data;
+
+                showAllValidationErrors(data)
             });
         })
+
+        function showAllValidationErrors(response) {
+            if (!response.errors) {
+                const errorMainHeader = document.querySelector('#main-header-error');
+                errorMainHeader.textContent = response.message;
+                errorMainHeader.classList.remove('visually-hidden');
+            };
+
+            Object.entries(response.errors).forEach(([fieldName, messages]) => {
+                const errorElement = document.getElementById(`${fieldName}-error`);
+                const inputElement = document.getElementById(fieldName);
+
+                if (errorElement && messages.length > 0) {
+                    errorElement.textContent = typeof(messages) == 'array' ? messages[0] : messages;
+                    errorElement.classList.remove('visually-hidden');
+                }
+
+                if (inputElement) {
+                    inputElement.classList.add('is-invalid');
+                }
+            });
+        }
     </script>
 @endpush

@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('admin')->group(function () {
 
     Route::prefix('login')->group(function () {
-        Route::get('/', AdminLoginViewController::class)->name('admin.login');
         Route::post('/', AdminLoginAuthController::class)->name('admin.login.auth');
+        Route::get('/', AdminLoginViewController::class)->name('admin.login');
     });
 
     Route::middleware([Admin::class])->group(function () {
