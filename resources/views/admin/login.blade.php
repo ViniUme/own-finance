@@ -52,7 +52,8 @@
                 data: {
                     _token: '{{ csrf_token() }}',
                     email: document.querySelector('#email').value,
-                    password: document.querySelector('#password').value
+                    password: document.querySelector('#password').value,
+                    remember_me: document.querySelector('#remember_me').checked
                 }
             })
             .then(function (response) {

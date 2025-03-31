@@ -14,7 +14,7 @@ class AdminLoginAuthController extends BaseController
 {
     public function __invoke(AdminLoginAuthRequest $request)
     {
-        if (Auth::attempt($request->only('email', 'password'))) {
+        if (Auth::attempt($request->only('email', 'password'), $request->remember_me)) {
             $request->session()->regenerate();
 
             return $this->sendSuccessResponse($request, 'Login feito com sucesso!');
