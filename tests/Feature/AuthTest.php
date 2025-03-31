@@ -11,6 +11,8 @@ use Tests\TestCase;
 
 class AuthTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_base_admin_access_exists(): void
     {
         $response = $this->get(route('admin.login'));
@@ -53,5 +55,28 @@ class AuthTest extends TestCase
         ]);
 
         $response->assertStatus(401);
+    }
+
+    public function test_success_response_body(): void
+    {
+        $this->seed(DatabaseSeeder::class);
+
+        $response = $this->postJson(route('admin.login.auth'), [
+            '_token' => csrf_token(),
+            'email' => 'admin@admin.com',
+            'password' => 'password'
+        ]);
+
+        $response
+            ->assertStatus(200)
+            ->assertJson([
+                'success' => true
+            ])
+            ->assertJsonStructure([
+                'success',
+                'request',
+                'message',
+                'status'
+            ]);
     }
 }
