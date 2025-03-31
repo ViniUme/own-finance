@@ -9,18 +9,18 @@
                             <h4>Admin Log In</h4>
                             <p>Acesso apenas para administradores</p>
                         </div>
-                        <form id="auth-form">
+                        <form class="d-flex flex-column gap-3" id="auth-form">
                             @csrf
                             <div class="alert alert-warning visually-hidden" id="main-header-error"></div>
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email">
-                                <div class="alert alert-warning visually-hidden" id="email-error"></div>
+                                <div class="alert alert-warning mt-3 visually-hidden" id="email-error"></div>
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password">
-                                <div class="alert alert-warning visually-hidden" id="password-error"></div>
+                                <div class="alert alert-warning mt-3 visually-hidden" id="password-error"></div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">
