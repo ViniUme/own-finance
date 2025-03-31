@@ -25,9 +25,9 @@ class AdminLoginAuthRequest extends BaseRequest
     public function messages()
     {
         return [
-            'email.required' => 'E-mail is required',
-            'email.email' => 'E-mail must be valid',
-            'password.required' => 'Password is required'
+            'email.required' => 'E-mail é um campo obrigatório',
+            'email.email' => 'E-mail precisa ser válido',
+            'password.required' => 'Password é um campo obrigatório'
         ];
     }
 }

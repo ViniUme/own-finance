@@ -13,7 +13,7 @@ class BaseRequest extends FormRequest
         throw new HttpResponseException(
             response()->json([
                 'success' => false,
-                'message' => 'Validation errors',
+                'message' => 'Erros de validação',
                 'errors' => $validator->errors(),
                 'status' => 422,
                 'timestamp' => now()->toDateTimeString()

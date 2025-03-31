@@ -17,9 +17,9 @@ class AdminLoginAuthController extends BaseController
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
 
-            return $this->sendSuccessResponse($request, 'Login with success');
+            return $this->sendSuccessResponse($request, 'Login feito com sucesso!');
         }
 
-        return $this->sendFailureResponse($request, 'Login not authorized', ['email' => 'E-mail not authorized'], 401);
+        return $this->sendFailureResponse($request, 'Login não autorizado!', ['email' => 'E-mail não autorizado!'], 401);
     }
 }
