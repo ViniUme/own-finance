@@ -80,4 +80,25 @@ class AuthTest extends TestCase
                 'content'
             ]);
     }
+
+    public function test_failure_response_body(): void
+    {
+        $response = $this->postJson(route('admin.login.auth'), [
+            '_token' => csrf_token(),
+            'email' => 'wrong.email@admin.com',
+            'password' => 'password'
+        ]);
+
+        $response
+            ->assertStatus(401)
+            ->assertJson([
+                'success' => false
+            ])
+            ->assertJsonStructure([
+                'success',
+                'request',
+                'message',
+                'status',
+            ]);
+    }
 }
