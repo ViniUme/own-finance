@@ -14,7 +14,8 @@ class BaseController extends Controller
             'status' => $status,
             'message' => $message,
             'request' => $request->all(),
-            'content' => $content ?? null
+            'content' => $content ?? null,
+            'timestamp' => now()->toDateTimeString()
         ]);
     }
 
@@ -25,7 +26,8 @@ class BaseController extends Controller
             'status' => $status,
             'message' => $message,
             'request' => $request->all(),
-            'errors' => $errors ?? null
+            'errors' => $errors ?? null,
+            'timestamp' => now()->toDateTimeString()
         ], $status);
 
         return $response;
