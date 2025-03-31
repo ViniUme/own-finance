@@ -77,7 +77,8 @@ class AuthTest extends TestCase
                 'request',
                 'message',
                 'status',
-                'content'
+                'content',
+                'timestamp'
             ]);
     }
 
@@ -99,7 +100,8 @@ class AuthTest extends TestCase
                 'request',
                 'message',
                 'status',
-                'errors'
+                'errors',
+                'timestamp'
             ]);
     }
 }
