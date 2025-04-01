@@ -15,12 +15,12 @@
                             <div class="col-12">
                                 <label for="email" class="form-label">Email</label>
                                 <input type="text" class="form-control" id="email" name="email">
-                                <div class="alert alert-warning mt-3 visually-hidden" id="email-error"></div>
+                                <div class="alert alert-warning mt-2 mb-1 visually-hidden" id="email-error"></div>
                             </div>
                             <div class="col-12">
                                 <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password">
-                                <div class="alert alert-warning mt-3 visually-hidden" id="password-error"></div>
+                                <div class="alert alert-warning mt-2 mb-1 visually-hidden" id="password-error"></div>
                             </div>
                             <div class="col-12 col-lg-6">
                                 <div class="form-check form-switch">
@@ -45,6 +45,8 @@
     <script>
         document.querySelector('#auth-form').addEventListener('submit', function (event) {
             event.preventDefault()
+
+            clearOldErrors();
 
             axios({
                 url: "{{ route('api.admin.login.auth') }}",
@@ -90,6 +92,18 @@
                     inputElement.classList.add('is-invalid');
                 }
             });
+        }
+
+        function clearOldErrors() {
+            const errorElements = document.querySelectorAll('.alert-warning');
+            const inputElements = document.querySelectorAll('.form-control');
+
+            errorElements.forEach( function(error) {
+                error.classList.add('visually-hidden');
+            })
+            inputElements.forEach( function(input) {
+                input.classList.remove('is_invalid');
+            })
         }
     </script>
 @endpush
