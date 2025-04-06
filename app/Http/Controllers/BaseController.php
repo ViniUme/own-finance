@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class BaseController extends Controller
 {
@@ -33,7 +34,7 @@ class BaseController extends Controller
         return $response;
     }
 
-    public function sendViewResponse(string $view)
+    public function sendViewResponse(string $view): View
     {
         return view($view);
     }

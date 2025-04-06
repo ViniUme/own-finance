@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\Admin\Login;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\BaseController;
+use Illuminate\View\View;
 
-class AdminLoginViewController extends Controller
+class AdminLoginViewController extends BaseController
 {
-    public function __invoke()
+    public function __invoke(): View
     {
-        return view('admin.login');
+        return $this->sendViewResponse('admin.login');
     }
 }
