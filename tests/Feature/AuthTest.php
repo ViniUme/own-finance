@@ -104,4 +104,19 @@ class AuthTest extends TestCase
                 'timestamp'
             ]);
     }
+
+    public function test_logout_when_its_logged(): void
+    {
+        $this->seed(DatabaseSeeder::class);
+
+        $this->postJson(route('api.admin.login.auth'), [
+            '_token' => csrf_token(),
+            'email' => 'admin@admin.com',
+            'password' => 'password'
+        ]);
+        
+        $response = $this->get(route('admin.logout'));
+
+        $response->assertRedirect(route('admin.login'))->assertStatus(307);
+    }
 }
