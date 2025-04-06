@@ -19,10 +19,10 @@ class AuthTest extends TestCase
         $response->assertStatus(200);
     }
 
-    public function test_abort_if_not_authenticated():void
+    public function test_redirect_to_login_if_not_authenticated():void
     {
         $response = $this->get(route('admin.dashboard'));
-        $response->assertStatus(401);
+        $response->assertRedirect(route('admin.login'))->assertStatus(307);
     }
 
     public function test_login_without_email(): void
