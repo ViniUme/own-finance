@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
 class Admin
 {
@@ -14,12 +15,12 @@ class Admin
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next): Response|Redirect
     {
         if (Auth::check()) {
             return $next($request);
         }
 
-        abort(401, 'Access unauthorized');
+        return redirect(route('admin.login'), 307);
     }
 }
