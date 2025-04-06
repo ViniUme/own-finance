@@ -32,4 +32,9 @@ class BaseController extends Controller
 
         return $response;
     }
+
+    public function sendViewResponse(string $view)
+    {
+        return view($view);
+    }
 }
