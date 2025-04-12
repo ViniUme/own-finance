@@ -38,7 +38,7 @@
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
                 <div>
-                    <img src="assets/images/logo-icon-2.png" class="logo-icon" alt="logo icon">
+                    <img src="{{ asset('assets/images/logo-icon-2.png') }}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
                     <h4 class="logo-text">Fobia</h4>
@@ -702,14 +702,14 @@
                         <li class="nav-item dropdown dropdown-user-setting">
                             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" href="javascript:;" data-bs-toggle="dropdown">
                                 <div class="user-setting">
-                                    <img src="assets/images/avatars/06.png" class="user-img" alt="">
+                                    <img src="{{ asset('assets/images/avatars/06.png') }}" class="user-img" alt="">
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
                                 <li>
                                     <a class="dropdown-item" href="javascript:;">
                                         <div class="d-flex flex-row align-items-center gap-2">
-                                            <img src="assets/images/avatars/06.png" alt="" class="rounded-circle" width="54" height="54">
+                                            <img src="{{ asset('assets/images/avatars/06.png') }}" alt="" class="rounded-circle" width="54" height="54">
                                             <div class="">
                                                 <h6 class="mb-0 dropdown-user-name">Jhon Deo</h6>
                                                 <small class="mb-0 dropdown-user-designation text-secondary">UI Developer</small>
