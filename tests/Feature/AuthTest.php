@@ -6,6 +6,7 @@ use App\Models\User;
 use Database\Seeders\DatabaseSeeder;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Testing\ParallelTesting;
 use Tests\TestCase;
 
@@ -125,5 +126,23 @@ class AuthTest extends TestCase
         $this->seed(DatabaseSeeder::class);
 
         $this->assertTrue(User::find(1)->isAdmin());
+    }
+
+    public function test_not_admin_user_is_admin(): void
+    {
+        $this->seed(DatabaseSeeder::class);
+        User::factory()->create([
+            'id' => 2,
+            'name' => 'Test User',
+            'email' => 'test@test.com',
+            'password' => Hash::make('password')
+        ]);
+
+        $response = $this->post(route('api.admin.login.auth'), [
+            '_token' => csrf_token(),
+            'email' => 'test@test.com',
+            'password' => 'password'
+        ]);
+        $response->assertRedirect(route('admin.login'))->assertStatus(307);
     }
 }
