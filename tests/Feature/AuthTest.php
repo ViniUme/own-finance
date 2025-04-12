@@ -114,9 +114,16 @@ class AuthTest extends TestCase
             'email' => 'admin@admin.com',
             'password' => 'password'
         ]);
-        
+
         $response = $this->get(route('admin.logout'));
 
         $response->assertRedirect(route('admin.login'))->assertStatus(307);
+    }
+
+    public function test_admin_user_is_admin(): void
+    {
+        $this->seed(DatabaseSeeder::class);
+
+        $this->assertTrue(User::find(1)->isAdmin());
     }
 }
