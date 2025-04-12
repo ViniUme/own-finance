@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\Dashboard\DashboardViewController;
 use App\Http\Controllers\Admin\Login\AdminLoginAuthController;
 use App\Http\Controllers\Admin\Login\AdminLoginViewController;
 use App\Http\Controllers\Admin\Logout\AdminLogoutController;
@@ -16,9 +17,7 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware([Admin::class])->group(function () {
         Route::get('/logout', AdminLogoutController::class)->name('admin.logout');
-        
-        Route::get('/dashboard', function(){
-            return response('', 200);
-        })->name('admin.dashboard');
+
+        Route::get('/dashboard', DashboardViewController::class)->name('admin.dashboard');
     });
 });
