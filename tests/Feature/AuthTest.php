@@ -138,11 +138,12 @@ class AuthTest extends TestCase
             'password' => Hash::make('password')
         ]);
 
-        $response = $this->post(route('api.admin.login.auth'), [
+        $response = $this->postJson(route('api.admin.login.auth'), [
             '_token' => csrf_token(),
             'email' => 'test@test.com',
             'password' => 'password'
         ]);
-        $response->assertRedirect(route('admin.login'))->assertStatus(307);
+        
+        $response->assertStatus(401);
     }
 }
