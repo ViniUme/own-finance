@@ -13,6 +13,8 @@ return new class extends Migration
             $table->string('code', length: 3)->unique();
             $table->string('name');
             $table->smallInteger('decimal_places')->default(0);
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
