@@ -10,6 +10,12 @@ class CurrencyTest extends TestCase
 {
     use RefreshDatabase;
 
+    private $defaultCurrency = [
+        'code' => 'BRL',
+        'name' => 'Real Brasileiro',
+        'decimal_places' => 2
+    ];
+
     public function test_currency_model_exists(): void
     {
         $this->assertTrue(class_exists(Currency::class));
@@ -17,11 +23,7 @@ class CurrencyTest extends TestCase
 
     public function test_create_currency(): void
     {
-        $currency = Currency::create([
-            'code' => 'BRL',
-            'name' => 'Real Brasileiro',
-            'decimal_places' => '2',
-        ]);
+        $currency = Currency::create($this->defaultCurrency);
 
         $this->assertInstanceOf(Currency::class, $currency);
         $this->assertEquals('BRL', $currency->code);
