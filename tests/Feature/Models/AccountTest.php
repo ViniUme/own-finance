@@ -41,7 +41,7 @@ class AccountTest extends TestCase
         ]);
         $this->assertEquals($user->id, $account->user_id);
         $this->assertEquals($currency->id, $account->currency_id);
-        $this->assertEquals('Account Test', $account);
+        $this->assertEquals('Account Test', $account->name);
         $this->assertEquals('bank', $account->type);
     }
 }
