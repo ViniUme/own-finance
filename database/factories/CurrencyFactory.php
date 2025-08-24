@@ -14,7 +14,7 @@ class CurrencyFactory extends Factory
         return [
             'code' => fake()->unique()->currencyCode(),
             'name' => fake()->name(),
-            'decimal_digits' => fake()->randomElement([0, 1, 2, 3, 4])
+            'decimal_places' => fake()->randomElement([0, 1, 2, 3, 4])
         ];
     }
 }

@@ -27,11 +27,7 @@ class AccountTest extends TestCase
     public function test_create_account(): void
     {
         $user = User::factory()->create();
-        $currency = Currency::create([
-            'code' => 'BRL',
-            'name' => 'Real Brasileiro',
-            'decimal_places' => 2
-        ]);
+        $currency = Currency::factory()->create();
 
         $account = Account::create([
             'user_id' => $user->id,
