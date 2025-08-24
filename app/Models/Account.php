@@ -12,6 +12,8 @@ class Account extends Model
         'user_id',
         'currency_id',
         'name',
-        'type'
+        'type',
+        'color_hex',
+        'current_balance'
     ];
 }

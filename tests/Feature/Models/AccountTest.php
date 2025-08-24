@@ -37,11 +37,15 @@ class AccountTest extends TestCase
             'user_id' => $user->id,
             'currency_id' => $currency->id,
             'name' => 'Account Test',
-            'type' => 'bank'
+            'type' => 'bank',
+            'color_hex' => 'ffffff',
+            'current_balance' => 0
         ]);
         $this->assertEquals($user->id, $account->user_id);
         $this->assertEquals($currency->id, $account->currency_id);
         $this->assertEquals('Account Test', $account->name);
         $this->assertEquals('bank', $account->type);
+        $this->assertEquals('ffffff', $account->color_hex);
+        $this->assertEquals(0, $account->current_balance);
     }
 }
