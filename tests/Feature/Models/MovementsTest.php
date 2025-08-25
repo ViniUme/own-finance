@@ -17,6 +17,6 @@ class MovementsTest extends TestCase
 
     public function test_movements_model_exists(): void
     {
-        $this->assertTrue(class_exists('App/Models/Movement'));
+        $this->assertTrue(class_exists('App\Models\Movement'));
     }
 }
