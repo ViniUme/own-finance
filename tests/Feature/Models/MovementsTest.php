@@ -9,9 +9,14 @@ use Tests\TestCase;
 class MovementsTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function test_movements_table_exists(): void
     {
         $this->assertTrue(Schema::hasTable('movements'));
+    }
+
+    public function test_movements_model_exists(): void
+    {
+        $this->assertTrue(class_exists('App/Models/Movement'));
     }
 }
