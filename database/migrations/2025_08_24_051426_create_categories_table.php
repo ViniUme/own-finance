@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('slug');
             $table->integer('group');
             $table->string('icon');
-            $table->string('color_hex', length: 6);
             $table->timestamps();
         });
     }
