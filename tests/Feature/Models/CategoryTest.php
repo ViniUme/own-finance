@@ -14,4 +14,9 @@ class CategoryTest extends TestCase
     {
         $this->assertTrue(Schema::hasTable('categories'));
     }
+
+    public function test_category_model_exists(): void
+    {
+        $this->assertTrue(class_exists('App\Models\Category'));
+    }
 }
