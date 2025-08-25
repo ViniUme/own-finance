@@ -30,9 +30,9 @@ class CategoryTest extends TestCase
             'icon' => 'credit-card'
         ]);
 
-        $this->assertTrue('Category Test', $category->name);
-        $this->assertTrue('category-test', $category->slug);
-        $this->assertTrue(0, $category->group);
-        $this->assertTrue('credit-card', $category->icon);
+        $this->assertEquals('Category Test', $category->name);
+        $this->assertEquals('category-test', $category->slug);
+        $this->assertEquals(0, $category->group);
+        $this->assertEquals('credit-card', $category->icon);
     }
 }
