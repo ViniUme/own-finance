@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
+use Illuminate\Support\Str;
 
 class CategoryTest extends TestCase
 {
@@ -24,6 +25,7 @@ class CategoryTest extends TestCase
     public function test_create_category(): void
     {
         $category = Category::create([
+            'id' => Str::uuid7(),
             'name' => 'Category Test',
             'slug' => 'category-test',
             'group' => 0,

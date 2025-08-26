@@ -12,7 +12,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignId('account_id')->constrained();
             $table->foreignId('currency_id')->constrained();
-            $table->foreignId('category_id')->constrained();
+            $table->foreignUuid('category_id')->constrained();
             $table->uuid('parent_id')->nullable();
             $table->bigInteger('amount')->nullable();
             $table->enum('type', ['income', 'expense', 'transfer']);
