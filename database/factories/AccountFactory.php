@@ -16,7 +16,7 @@ class AccountFactory extends Factory
             'name' => fake()->name(),
             'type' => fake()->randomElement(['wallet', 'bank', 'investment']),
             'color_hex' => fake()->regexify('[a-z0-9]{6}'),
-            'current_balance' => fake()->randomNumber(10, false)
+            'current_balance' => fake()->randomNumber(6, false)
         ];
     }
 }
