@@ -35,4 +35,16 @@ class CategoryTest extends TestCase
         $this->assertEquals(0, $category->group);
         $this->assertEquals('credit-card', $category->icon);
     }
+
+    public function test_create_fake_through_category_model(): void
+    {
+        $category = Category::factory()->create();
+
+        $this->assertNotEmpty($category->id);
+        $this->assertNotEmpty($category->name);
+        $this->assertNotEmpty($category->slug);
+        $this->assertNotEmpty($category->group);
+        $this->assertNotEmpty($category->icon);
+        $this->assertNotEmpty($category->created_at);
+    }
 }
