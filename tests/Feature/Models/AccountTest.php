@@ -44,4 +44,18 @@ class AccountTest extends TestCase
         $this->assertEquals('ffffff', $account->color_hex);
         $this->assertEquals(0, $account->current_balance);
     }
+
+    public function test_create_fake_through_model_account(): void
+    {
+        $account = Account::factory()->create();
+
+        $this->assertNotEmpty($account->id);
+        $this->assertNotEmpty($account->user_id);
+        $this->assertNotEmpty($account->currency_id);
+        $this->assertNotEmpty($account->name);
+        $this->assertNotEmpty($account->type);
+        $this->assertNotEmpty($account->color_hex);
+        $this->assertNotEmpty($account->current_balance);
+        $this->assertNotEmpty($account->created_at);
+    }
 }
