@@ -45,14 +45,30 @@ class MovementTest extends TestCase
             'previous_balance' => 50,
         ]);
 
-        $this->assertNotEmpty($id, $movement->id);
-        $this->assertNotEmpty($account->id, $movement->account_id);
-        $this->assertNotEmpty($currency->id, $movement->currency_id);
-        $this->assertNotEmpty($category->id, $movement->category_id);
-        $this->assertNotEmpty(100, $movement->amount);
-        $this->assertNotEmpty('income', $movement->type);
-        $this->assertNotEmpty('Movement Test', $movement->description);
-        $this->assertNotEmpty($date, $movement->date);
-        $this->assertNotEmpty(50, $movement->previous_balance);
+        $this->assertEquals($id, $movement->id);
+        $this->assertEquals($account->id, $movement->account_id);
+        $this->assertEquals($currency->id, $movement->currency_id);
+        $this->assertEquals($category->id, $movement->category_id);
+        $this->assertEquals(100, $movement->amount);
+        $this->assertEquals('income', $movement->type);
+        $this->assertEquals('Movement Test', $movement->description);
+        $this->assertEquals($date, $movement->date);
+        $this->assertEquals(50, $movement->previous_balance);
+    }
+
+    public function test_create_fake_through_movements_model(): void
+    {
+        $movement = Movement::factory()->create();
+
+        $this->assertNotEmpty($movement->id);
+        $this->assertNotEmpty($movement->account_id);
+        $this->assertNotEmpty($movement->currency_id);
+        $this->assertNotEmpty($movement->category_id);
+        $this->assertNotEmpty($movement->amount);
+        $this->assertNotEmpty($movement->type);
+        $this->assertNotEmpty($movement->description);
+        $this->assertNotEmpty($movement->date);
+        $this->assertNotEmpty($movement->previous_balance);
+        $this->assertNotEmpty($movement->created_at);
     }
 }
