@@ -31,4 +31,13 @@ class RoleTest extends TestCase
         $this->assertEquals('Test Role', $role->name);
         $this->assertNotEmpty($role->created_at);
     }
+
+    public function test_create_fake_through_role_model(): void
+    {
+        $role = Role::factory()->create();
+
+        $this->assertNotEmpty($role->id);
+        $this->assertNotEmpty($role->name);
+        $this->assertNotEmpty($role->created_at);
+    }
 }
