@@ -39,7 +39,7 @@ class MovementTest extends TestCase
             'currency_id' => $currency->id,
             'category_id' => $category->id,
             'amount' => 100,
-            'type' => 'bank',
+            'type' => 'income',
             'description' => 'Movement Test',
             'date' => $date,
             'previous_balance' => 50,
@@ -50,7 +50,7 @@ class MovementTest extends TestCase
         $this->assertNotEmpty($currency->id, $movement->currency_id);
         $this->assertNotEmpty($category->id, $movement->category_id);
         $this->assertNotEmpty(100, $movement->amount);
-        $this->assertNotEmpty('bank', $movement->type);
+        $this->assertNotEmpty('income', $movement->type);
         $this->assertNotEmpty('Movement Test', $movement->description);
         $this->assertNotEmpty($date, $movement->date);
         $this->assertNotEmpty(50, $movement->previous_balance);
