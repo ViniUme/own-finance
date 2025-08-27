@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('group');
             $table->string('icon');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

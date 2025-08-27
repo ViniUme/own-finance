@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('currencies', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id')->primary();
             $table->string('code', length: 3)->unique();
             $table->string('name');
             $table->smallInteger('decimal_places')->default(0);

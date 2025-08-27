@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Schema;
 use App\Models\Account;
 use App\Models\Currency;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class AccountTest extends TestCase
 {
@@ -30,6 +31,7 @@ class AccountTest extends TestCase
         $currency = Currency::factory()->create();
 
         $account = Account::create([
+            'id' => Str::uuid7(),
             'user_id' => $user->id,
             'currency_id' => $currency->id,
             'name' => 'Account Test',

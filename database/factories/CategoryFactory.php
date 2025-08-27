@@ -15,7 +15,7 @@ class CategoryFactory extends Factory
             'id' => Str::uuid7(),
             'name' => $name,
             'slug' => Str::slug($name),
-            'group' => fake()->randomDigit(),
+            'group' => fake()->randomDigitNot(0),
             'icon' => fake()->word() . '-' . fake()->word()
         ];
     }

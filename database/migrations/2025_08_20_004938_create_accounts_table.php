@@ -9,9 +9,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('currency_id')->constrained();
+            $table->uuid('id')->primary();
+            $table->foreignUuid('user_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('currency_id')->constrained();
             $table->string('name');
             $table->enum('type', ['wallet', 'bank', 'investment']);
             $table->string('color_hex', length: 6)->nullable();
