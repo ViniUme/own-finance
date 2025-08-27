@@ -17,6 +17,6 @@ class RoleTest extends TestCase
 
     public function test_role_model_exists(): void
     {
-        $this->assertTrue(class_exists('App/Models/Role'));
+        $this->assertTrue(class_exists('App\Models\Role'));
     }
 }
