@@ -11,6 +11,6 @@ class UserSeederTest extends TestCase
 
     public function test_users_seeder_exists(): void
     {
-        $this->assertTrue(class_exists('Database/seeders/UserSeeder'));
+        $this->assertTrue(class_exists('Database\Seeders\UserSeeder'));
     }
 }
