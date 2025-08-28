@@ -40,4 +40,9 @@ class RoleTest extends TestCase
         $this->assertNotEmpty($role->name);
         $this->assertNotEmpty($role->created_at);
     }
+
+    public function test_role_user_table_exists(): void
+    {
+        $this->assertTrue(Schema::hasTable('role_user'));
+    }
 }
