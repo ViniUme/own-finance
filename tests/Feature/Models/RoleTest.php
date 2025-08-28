@@ -45,4 +45,12 @@ class RoleTest extends TestCase
     {
         $this->assertTrue(Schema::hasTable('role_user'));
     }
+
+    public function test_create_role_with_user(): void
+    {
+        $role = Role::factory()->withUser()->create();
+
+        $this->assertNotEmpty($role->users);
+        $this->assertTrue($role->users->count() >= 1);
+    }
 }
