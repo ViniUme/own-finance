@@ -25,4 +25,14 @@ class UserSeederTest extends TestCase
         $this->assertEquals('Admin', $adminUser->name);
         $this->assertEquals('admin@test.com', $adminUser->email);
     }
+
+    public function test_create_admin_user_with_role(): void
+    {
+        $this->seed(UserSeeder::class);
+
+        $adminUser = User::where('email', 'admin@test.com')->first();
+
+        $this->assertNotEmpty($adminUser->roles);
+        $this->assertTrue($adminUser->roles->count() >= 1);
+    }
 }
