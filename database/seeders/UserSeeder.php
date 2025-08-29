@@ -17,7 +17,9 @@ class UserSeeder extends Seeder
             'password' => Str::uuid7()
         ]);
 
-        $role = Role::factory()->create();
+        $role = Role::create([
+            'name' => 'Admin'
+        ]);
 
         $user->roles()->attach($role->id);
     }
