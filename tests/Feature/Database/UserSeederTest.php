@@ -19,6 +19,7 @@ class UserSeederTest extends TestCase
     public function test_create_admin_user(): void
     {
         $this->seed(UserSeeder::class);
+
         $adminUser = User::where('email', 'admin@test.com')->first();
 
         $this->assertEquals('Admin', $adminUser->name);
