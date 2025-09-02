@@ -16,7 +16,7 @@ class ApiRoutesTest extends TestCase
     public function test_error_when_request_authentication_without_data(): void
     {
         $authRoute = route('api.login.authentication');
-        $response = $this->post($authRoute);
+        $response = $this->postJson($authRoute);
 
         $response->assertUnprocessable();
     }
