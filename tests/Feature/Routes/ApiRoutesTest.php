@@ -9,7 +9,7 @@ class ApiRoutesTest extends TestCase
 {
     public function test_login_authentication_route_exists(): void
     {
-        $routeExists = Route::has('login.authentication');
+        $routeExists = Route::has('api.login.authentication');
         $this->assertTrue($routeExists);
     }
 }
