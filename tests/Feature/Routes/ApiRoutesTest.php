@@ -12,4 +12,12 @@ class ApiRoutesTest extends TestCase
         $routeExists = Route::has('api.login.authentication');
         $this->assertTrue($routeExists);
     }
+
+    public function test_error_when_request_authentication_without_data(): void
+    {
+        $authRoute = route('api.login.authentication');
+        $response = $this->post($authRoute);
+
+        $response->assertUnprocessable();
+    }
 }
