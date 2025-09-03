@@ -8,6 +8,4 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-Route::prefix('api')->group(function () {
-    Route::post('login/auth', LoginAuthController::class)->name('api.login.auth');
-});
+Route::post('login/auth', LoginAuthController::class)->name('api.login.auth');
