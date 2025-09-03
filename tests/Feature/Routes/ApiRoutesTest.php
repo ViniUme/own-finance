@@ -20,4 +20,16 @@ class ApiRoutesTest extends TestCase
 
         $response->assertUnprocessable();
     }
+
+    public function test_error_when_send_wrong_email_format(): void
+    {
+        $authRoute = route('api.login.auth');
+        $data = [
+            'email' => 'teste',
+            'password' => 'password'
+        ];
+        $response = $this->postJson($authRoute, $data);
+
+        $response->assertUnprocessable();
+    }
 }
