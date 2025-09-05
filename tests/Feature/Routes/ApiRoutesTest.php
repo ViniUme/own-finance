@@ -2,6 +2,8 @@
 
 namespace Tests\Feature\Routes;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
@@ -31,5 +33,21 @@ class ApiRoutesTest extends TestCase
         $response = $this->postJson($authRoute, $data);
 
         $response->assertUnprocessable();
+    }
+
+    public function test_generate_session_when_login(): void
+    {
+        $authRoute = route('api.login.auth');
+        $user = User::factory()->create([
+            'password' => Hash::make('password')
+        ]);
+        $data = [
+            'email' => $user->email,
+            'password' => 'password'
+        ];
+        $response = $this->postJson($authRoute, $data);
+
+        $response->assertFound();
+        $this->assertAuthenticatedAs($user);
     }
 }
