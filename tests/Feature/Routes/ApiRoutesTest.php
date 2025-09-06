@@ -3,12 +3,15 @@
 namespace Tests\Feature\Routes;
 
 use App\Models\User;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use Tests\TestCase;
 
 class ApiRoutesTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function test_login_authentication_route_exists(): void
     {
         $routeExists = Route::has('api.login.auth');
@@ -35,7 +38,7 @@ class ApiRoutesTest extends TestCase
         $response->assertUnprocessable();
     }
 
-    public function test_generate_session_when_login(): void
+    public function test_generate_bearer_token_when_login(): void
     {
         $authRoute = route('api.login.auth');
         $user = User::factory()->create([
@@ -47,7 +50,11 @@ class ApiRoutesTest extends TestCase
         ];
         $response = $this->postJson($authRoute, $data);
 
-        $response->assertFound();
-        $this->assertAuthenticatedAs($user);
+        $response->assertSuccessful();
+        $response->assertJson([
+            'message' => 'Success login',
+            'token_type' => 'Bearer'
+        ]);
+        $this->assertNotEmpty($response['access_token']);
     }
 }
