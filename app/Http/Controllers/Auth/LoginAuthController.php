@@ -24,6 +24,8 @@ class LoginAuthController extends Controller
             ]);
         }
 
-        return response('', 401);
+        return response()->json([
+            'message' => 'User not found'
+        ], 401);
     }
 }
