@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->smallInteger('decimal_places');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
